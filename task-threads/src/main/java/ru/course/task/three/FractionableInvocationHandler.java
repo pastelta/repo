@@ -16,6 +16,7 @@ public class FractionableInvocationHandler<T> implements InvocationHandler {
     }
 
     public static boolean check(StateFraction fr, ConcurrentHashMap<StateFraction, Object> stateFractionCache) {
+        if(stateFractionCache.isEmpty()) return false;
         for (Map.Entry<StateFraction, Object> entry : stateFractionCache.entrySet()) {
             if (fr.equals(entry.getKey())) {
                 return true;
